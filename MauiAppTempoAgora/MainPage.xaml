@@ -15,8 +15,8 @@
             <Button x:Name="Search" Text="Buscar Previsão" Clicked="Search_Clicked"/>
 
             <Label x:Name="lbl_res"/>
-            
-            <WebView x:Name="wv_mapa" HeightRequest="500"
+
+            <WebView x:Name="wv_mapa" HeightRequest="500"/>
         </VerticalStackLayout>
     </ScrollView>
 
