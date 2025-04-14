@@ -1,24 +1,32 @@
-﻿namespace MauiAppTempoAgora
+﻿using MauiAppTempoAgora.Models;
+using MauiAppTempoAgora.Services;
+
+namespace MauiAppTempoAgora
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+       
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+     
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            count++;
+            try
+            {
+                if(!string.IsNullOrEmpty(txt_cidade.Text))
+                {
+                    Tempo? t = await DataService.GetPrevisao(txt_cidade.Text);
+                }
+            }
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private void Search_Clicked(object sender, EventArgs e)
+        {
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
         }
     }
 
